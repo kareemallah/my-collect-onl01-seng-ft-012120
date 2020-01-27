@@ -1,23 +1,15 @@
-list = ["ab", "cd", "ef"]
+list = ["Tim Jones", "Bob Costas", "Don Knotts"]
 
-def my_each(array)
+
+def my_collect(array)
   i = 0
+  name_collection = []
   while i < array.length
-    yield(array[i])
-    i = i + 1
-  end
-end
-
-my_each(list) {|i| puts "So I think #{i} is a piece of shit"}
-
-def hello(array)
-  i = 0
-  collection = []
-  while i < array.length
-    collection << yield(array[i])
+    name_collection.push yield(array[i])
+    
     i += 1
   end
-  collection
+  name_collection
 end
 
-hello(list) {|i| "Hello #{i} what's up?"}
+my_collect(list) {|i| i.split(" ").first}
